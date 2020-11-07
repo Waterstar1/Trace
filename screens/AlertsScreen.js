@@ -2,23 +2,15 @@ import React from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 
 
-const HomeScreen = () => {
+const AlertsScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.button}>
-        <Text style={styles.text}>
-          Track
-        </Text>
-      </TouchableOpacity>
-      <ScrollView style={styles.scrollview}>
         <Text>
-          Scroll text.
+            Alerts
         </Text>
-      </ScrollView>
-      {/* <StatusBar style="auto" /> */}
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -48,4 +40,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default HomeScreen;
+export default AlertsScreen;

@@ -9,6 +9,6 @@ const App = () => {
       <BottomTabNavigator />
     </NavigationContainer>
   );
-}
+};
 
 export default App;
