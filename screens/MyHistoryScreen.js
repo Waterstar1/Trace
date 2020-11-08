@@ -23,7 +23,7 @@ const MyHistoryScreen = () => {
       </MapView>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
