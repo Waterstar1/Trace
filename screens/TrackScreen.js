@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, View, SafeAreaView, Text } from 'react-native';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import Icon from 'react-native-vector-icons/FontAwesome5';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 
 const TrackScreen = ({ navigation }) => {
@@ -31,6 +31,17 @@ const TrackScreen = ({ navigation }) => {
                         }}
                         showsUserLocation={true}
                     >
+                        <Marker
+                            title={'check'}
+                            // image={'../assets/marker.png'}
+                            coordinate={{
+                                latitude: 37.78825,
+                                longitude: -122.4324,
+                            }}>
+                                <Callout>
+                                    <Text>You are here!</Text>
+                                </Callout>
+                        </Marker>
                     </MapView>
                 </View>
         </SafeAreaView>
