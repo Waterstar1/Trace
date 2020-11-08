@@ -4,10 +4,6 @@ import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 
 const MyHistoryScreen = () => {
-  // useEffect(
-  //   "Fetch database and show locations on Google Map"
-  // , []);
-
   return (
     <View style={styles.container}>
       <MapView

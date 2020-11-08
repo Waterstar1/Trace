@@ -1,17 +1,32 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 
 
-const AlertsScreen = () => {
-  // let response = await fetch('https://3f882b53.us-south.apigw.appdomain.cloud/random-numbers%27);
-  // let responseJson = await response.json();
-  // console.log(responseJson[0]);
+const AlertsScreen = ({ navigation }) => {
+  const [numToAlert, setNumToAlert] = useState(null);
+
+  const api = 'https://3f882b53.us-south.apigw.appdomain.cloud/random-numbers';
+
+  useEffect(() => {
+    const getRandom =  async () => {
+      const response = await fetch(api);
+      if (!response.ok) throw response;
+      const json = await response.json();
+      setNumToAlert(json[0]);
+    }
+    getRandom();
+  }, []);
 
   return (
     <SafeAreaView style={styles.container}>
-        <Text>
-            Alerts
+      <Text style={styles.text}>
+        You have made contact with {numToAlert} people in the past fourteen days.
+      </Text>
+      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomeScreen')}>
+        <Text style={styles.buttontext}>
+          ALERT
         </Text>
+      </TouchableOpacity>
     </SafeAreaView>
   );
 }
@@ -24,23 +39,26 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    borderRadius: 5,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
-    height: 60,
+    margin: 20,
+    height: 130,
     padding: 10,
-    minWidth: 90,
-    maxWidth: 90,
-    backgroundColor: '#66b0ff',
+    minWidth: 150,
+    maxWidth: 150,
+    backgroundColor: 'red',
   },
-  text: {
+  buttontext: {
     color: '#fff',
     fontSize: 12,
     textAlign: 'center',
   },
-  scrollview: {
-
+  text: {
+    fontSize: 20,
+    justifyContent: 'center',
+    alignContent: 'center',
+    padding: 10,
   }
 });
 

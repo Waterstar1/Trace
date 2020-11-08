@@ -11,18 +11,9 @@ const TrackScreen = ({ navigation }) => {
             {
                 "method": "POST",
                 "headers": {
-                    // "Accept": "application/json"
                     "Accept": "*/*",
                     "Content-Type": "application/json",
-                    "data": {
-                        "username": "dannyoh0316",
-                        "password": "Hack.RPI2020"
-                    }
                 },
-                // "body": {
-                //     "username": "dannyoh0316",
-                //     "password": "Hack.RPI2020"
-                // }
             })
             .then(response => {
                 console.log(JSON.stringify(response));
@@ -31,6 +22,7 @@ const TrackScreen = ({ navigation }) => {
                 console.error(err);
             }
         );
+        navigation.navigate('HomeScreen');
     };
 
     return (
