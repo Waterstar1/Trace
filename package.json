@@ -8,6 +8,8 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@cloudant/cloudant": "^4.3.0",
+    "@ibm-cloud/cloudant": "0.0.10",
     "@react-native-community/masked-view": "0.1.10",
     "@react-navigation/bottom-tabs": "^5.10.6",
     "@react-navigation/native": "^5.8.6",
