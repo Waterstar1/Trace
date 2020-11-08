@@ -19,11 +19,9 @@ const HomeScreen = ({ navigation }) => {
           <Image source={require('../assets/health.png')} style={styles.button} />
         </TouchableOpacity>
       </View>
-      <ScrollView>
-        <Text>
-          Scrollview.
-        </Text>
-      </ScrollView>
+        <TouchableOpacity onPress={() => Linking.openURL('https://twitter.com/CDCgov')}>
+          <Image source={require('../assets/twitter.png')} style={styles.twitter} />
+        </TouchableOpacity>
     </SafeAreaView>
   );
 };
@@ -57,6 +55,16 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 12,
     textAlign: 'center',
+  },
+  twitter: {
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 200,
+    height: 500,
+    padding: 10,
+    minWidth: 300,
+    maxWidth: 300,
   },
 });
 

@@ -3,6 +3,10 @@ import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView } from 're
 
 
 const AlertsScreen = () => {
+  // let response = await fetch('https://3f882b53.us-south.apigw.appdomain.cloud/random-numbers%27);
+  // let responseJson = await response.json();
+  // console.log(responseJson[0]);
+
   return (
     <SafeAreaView style={styles.container}>
         <Text>
