@@ -51,7 +51,7 @@ const TrackScreen = ({ navigation }) => {
                         showsUserLocation={true}
                     >
                         <Marker
-                            title={'check'}
+                            title={'here'}
                             coordinate={{
                                 latitude: 37.78825,
                                 longitude: -122.4324,

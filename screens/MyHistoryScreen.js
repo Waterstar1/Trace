@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView, View } from 'react-native';
-import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
+import MapView, { Marker, Callout, PROVIDER_GOOGLE } from 'react-native-maps';
 
 
 const MyHistoryScreen = () => {
@@ -16,6 +16,16 @@ const MyHistoryScreen = () => {
           longitudeDelta: 0.0121,
         }}
       >
+      <Marker
+        title={'visited'}
+        coordinate={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+        }}>
+          <Callout>
+            <Text>11/08/2020</Text>
+            </Callout>
+            </Marker>
       </MapView>
     </View>
   );

@@ -19,14 +19,18 @@ const AlertsScreen = ({ navigation }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.text}>
-        You have made contact with {numToAlert} people in the past fourteen days.
-      </Text>
-      <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomeScreen')}>
-        <Text style={styles.buttontext}>
-          ALERT
-        </Text>
-      </TouchableOpacity>
+      <ScrollView>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AlertScreen')}>
+          <Text style={styles.text}>
+            Somebody from Fran's Cafe has contracted COVID.
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.text}>
+            Paul A. tested negative!
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -45,21 +49,15 @@ const styles = StyleSheet.create({
     margin: 20,
     height: 130,
     padding: 10,
-    minWidth: 150,
-    maxWidth: 150,
-    backgroundColor: 'red',
-  },
-  buttontext: {
-    color: '#fff',
-    fontSize: 12,
-    textAlign: 'center',
+    minWidth: 350,
+    maxWidth: 350,
+    backgroundColor: '#66b0ff',
   },
   text: {
+    color: '#fff',
     fontSize: 20,
-    justifyContent: 'center',
-    alignContent: 'center',
-    padding: 10,
-  }
+    textAlign: 'center',
+  },
 });
 
 export default AlertsScreen;

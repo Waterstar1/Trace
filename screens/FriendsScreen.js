@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import {SearchBar} from 'react-native-elements';
 
 
 const FriendsScreen = () => {
   return (
-    <SafeAreaView style={styles.container}>
-        <Text>
-            Friends
-        </Text>
-    </SafeAreaView>
+    <SafeAreaView>
+      <SearchBar placeholder="Add a friend's username..." />
+      <TouchableOpacity style={styles.button}>
+          <Text style={styles.text}>
+            Paul A.
+          </Text>
+        </TouchableOpacity>
+      </SafeAreaView>
   );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -20,24 +24,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    borderRadius: 5,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
-    height: 60,
+    margin: 20,
+    height: 100,
     padding: 10,
-    minWidth: 90,
-    maxWidth: 90,
+    minWidth: 350,
+    maxWidth: 350,
     backgroundColor: '#66b0ff',
   },
   text: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: 50,
     textAlign: 'center',
   },
-  scrollview: {
-
-  }
 });
 
 export default FriendsScreen;
