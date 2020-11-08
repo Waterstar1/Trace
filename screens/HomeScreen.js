@@ -5,14 +5,20 @@ import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView } from 're
 const HomeScreen = () => {
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableOpacity style={styles.button}>
+      <TouchableOpacity
+        style={styles.button}>
         <Text style={styles.text}>
           Track
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity style={styles.button}>
+        <Text style={styles.text}>
+          COVID
+        </Text>
+      </TouchableOpacity>
       <ScrollView style={styles.scrollview}>
         <Text>
-          Scroll text.
+          Scrollview.
         </Text>
       </ScrollView>
       {/* <StatusBar style="auto" /> */}

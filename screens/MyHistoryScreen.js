@@ -1,23 +1,34 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView, View } from 'react-native';
+import MapView, { PROVIDER_GOOGLE } from 'react-native-maps';
 
 
 const MyHistoryScreen = () => {
+  // useEffect(
+  //   "Fetch database and show locations on Google Map"
+  // , []);
+
   return (
-    <SafeAreaView style={styles.container}>
-        <Text>
-            My History
-        </Text>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <MapView
+        provider={PROVIDER_GOOGLE}
+        style={styles.map}
+        region={{
+          latitude: 37.78825,
+          longitude: -122.4324,
+          latitudeDelta: 0.015,
+          longitudeDelta: 0.0121,
+        }}
+      >
+      </MapView>
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+    ...StyleSheet.absoluteFillObject,
+    height: '100%',
   },
   button: {
     borderRadius: 5,
@@ -30,14 +41,14 @@ const styles = StyleSheet.create({
     maxWidth: 90,
     backgroundColor: '#66b0ff',
   },
+  map: {
+    ...StyleSheet.absoluteFillObject,
+  },
   text: {
     color: '#fff',
     fontSize: 12,
     textAlign: 'center',
   },
-  scrollview: {
-
-  }
 });
 
 export default MyHistoryScreen;
