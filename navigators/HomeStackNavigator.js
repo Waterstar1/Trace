@@ -1,6 +1,8 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
 import HomeScreen from '../screens/HomeScreen';
+import TrackScreen from '../screens/TrackScreen';
+import COVIDScreen from '../screens/COVIDScreen';
 
 
 const Stack = createStackNavigator();
@@ -8,7 +10,9 @@ const Stack = createStackNavigator();
 const HomeStackNavigator = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name='Home' component={HomeScreen} options={{ title:'' }}/>
+            <Stack.Screen name='HomeScreen' component={HomeScreen} options={{title: ''}} />
+            <Stack.Screen name='TrackScreen' component={TrackScreen} options = {{title: ''}} />
+            <Stack.Screen name='COVIDScreen' component={COVIDScreen} options={{title: ''}} />
         </Stack.Navigator>
     );
 };

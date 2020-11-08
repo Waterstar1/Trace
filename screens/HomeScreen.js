@@ -1,21 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView, Image, View } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView, Image, View, Linking } from 'react-native';
 
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.buttons}>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={() => navigation.navigate('TrackScreen')}>
           <Image source={require('../assets/track.png')} style={styles.button} />
         </TouchableOpacity>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('COVIDScreen')}>
           <Image source={require('../assets/covid.png')} style={styles.button} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={() => Linking.openURL('https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html')}>
           <Image source={require('../assets/sick.png')} style={styles.button} />
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button}>
+        <TouchableOpacity onPress={() => Linking.openURL('https://www.cdc.gov/coronavirus/2019-ncov/prevent-getting-sick/prevention.html')}>
           <Image source={require('../assets/health.png')} style={styles.button} />
         </TouchableOpacity>
       </View>
@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-start',
   },
   button: {
-    borderRadius: 5,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
     margin: 20,
