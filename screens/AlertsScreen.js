@@ -1,13 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView } from 'react-native';
 
 
-const AlertsScreen = () => {
+const AlertsScreen = ({ navigation }) => {
+  const [numToAlert, setNumToAlert] = useState(null);
+
+  const api = 'https://3f882b53.us-south.apigw.appdomain.cloud/random-numbers';
+
+  useEffect(() => {
+    const getRandom =  async () => {
+      const response = await fetch(api);
+      if (!response.ok) throw response;
+      const json = await response.json();
+      setNumToAlert(json[0]);
+    }
+    getRandom();
+  }, []);
+
   return (
     <SafeAreaView style={styles.container}>
-        <Text>
-            Alerts
-        </Text>
+      <ScrollView>
+        <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('AlertScreen')}>
+          <Text style={styles.text}>
+            Somebody from Fran's Cafe has contracted COVID.
+          </Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.text}>
+            Paul A. tested negative!
+          </Text>
+        </TouchableOpacity>
+      </ScrollView>
     </SafeAreaView>
   );
 }
@@ -20,24 +43,21 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   button: {
-    borderRadius: 5,
+    borderRadius: 25,
     justifyContent: 'center',
     alignItems: 'center',
-    margin: 10,
-    height: 60,
+    margin: 20,
+    height: 130,
     padding: 10,
-    minWidth: 90,
-    maxWidth: 90,
+    minWidth: 350,
+    maxWidth: 350,
     backgroundColor: '#66b0ff',
   },
   text: {
     color: '#fff',
-    fontSize: 12,
+    fontSize: 20,
     textAlign: 'center',
   },
-  scrollview: {
-
-  }
 });
 
 export default AlertsScreen;

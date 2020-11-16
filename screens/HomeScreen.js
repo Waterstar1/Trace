@@ -1,5 +1,10 @@
-import React from 'react';
-import { StyleSheet, Text, TouchableOpacity, ScrollView, SafeAreaView, Image, View, Linking } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { StyleSheet, Text, TouchableOpacity, ScrollView, View, Image, Linking, SafeAreaView } from 'react-native';
+// import firebase from 'firebase/app';
+// import 'firebase/firestore';
+// import * as Location from 'expo-location';
+// import * as Device from 'expo-device';
+// import { useCollectionData } from 'react-firebase-hooks/firestore';
 
 
 const HomeScreen = ({ navigation }) => {
@@ -19,14 +24,10 @@ const HomeScreen = ({ navigation }) => {
           <Image source={require('../assets/health.png')} style={styles.button} />
         </TouchableOpacity>
       </View>
-      <ScrollView>
-        <Text>
-          Scrollview.
-        </Text>
-      </ScrollView>
+        <Image source={require('../assets/twitter.png')} style={styles.twitter} />
     </SafeAreaView>
   );
-};
+}
 
 const styles = StyleSheet.create({
   container: {
@@ -57,6 +58,14 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 12,
     textAlign: 'center',
+  },
+  twitter: {
+    borderRadius: 25,
+    top: 200,
+    height: 450,
+    padding: 0,
+    minWidth: 300,
+    maxWidth: 300,
   },
 });
 

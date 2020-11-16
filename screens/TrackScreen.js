@@ -6,6 +6,25 @@ import MapView, { Callout, Marker, PROVIDER_GOOGLE } from 'react-native-maps';
 
 
 const TrackScreen = ({ navigation }) => {
+    const getAuth = () => {
+        fetch("https://6587485d-6d3c-4cf6-9ae0-ceaf533de218-us-east1.apps.astra.datastax.com/api/rest/v1/auth",
+            {
+                "method": "POST",
+                "headers": {
+                    "Accept": "*/*",
+                    "Content-Type": "application/json",
+                },
+            })
+            .then(response => {
+                console.log(JSON.stringify(response));
+            })
+            .catch(err => {
+                console.error(err);
+            }
+        );
+        navigation.navigate('HomeScreen');
+    };
+
     return (
         <SafeAreaView style={styles.container}>
             <Text style={styles.text}>
@@ -15,7 +34,7 @@ const TrackScreen = ({ navigation }) => {
                     <TouchableOpacity style={styles.button} onPress={() => navigation.navigate('HomeScreen')}>
                         <Icon name='times-circle' size={100} />
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button}>
+                    <TouchableOpacity style={styles.button} onPress={getAuth}>
                         <Icon name='check-circle' size={100} />
                     </TouchableOpacity>
                 </View>
@@ -32,8 +51,7 @@ const TrackScreen = ({ navigation }) => {
                         showsUserLocation={true}
                     >
                         <Marker
-                            title={'check'}
-                            // image={'../assets/marker.png'}
+                            title={'here'}
                             coordinate={{
                                 latitude: 37.78825,
                                 longitude: -122.4324,
